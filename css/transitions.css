@@ -1,0 +1,79 @@
+/* ==========================================================================
+   ROUTE TRANSITIONS & SHADERS (Wipe, 3D Fold, Zoom-Blur)
+   ========================================================================== */
+
+#transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99995;
+  display: flex;
+}
+
+/* Transition Style 1: Split Wipe Curtain */
+.wipe-curtain-top,
+.wipe-curtain-bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(180deg, #04060d, #0d1226);
+  z-index: 99995;
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.wipe-curtain-top {
+  top: 0;
+  transform: translateY(-100%);
+}
+
+.wipe-curtain-bottom {
+  bottom: 0;
+  transform: translateY(100%);
+}
+
+#transition-overlay.wipe-active .wipe-curtain-top {
+  transform: translateY(0%);
+}
+
+#transition-overlay.wipe-active .wipe-curtain-bottom {
+  transform: translateY(0%);
+}
+
+/* Transition Style 2: 3D Spatial Fold Overlay */
+#transition-overlay.fold-active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--accent-magenta) 0%, var(--bg-dark) 80%);
+  animation: fold-pulse 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fold-pulse {
+  0% { transform: scale(0) rotate(-15deg); opacity: 0; }
+  50% { transform: scale(1.2) rotate(0deg); opacity: 0.9; }
+  100% { transform: scale(2) rotate(15deg); opacity: 0; }
+}
+
+/* Transition Style 3: Zoom & Blur Morph Overlay */
+.blur-morph-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 240, 255, 0.2);
+  backdrop-filter: blur(40px);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#transition-overlay.zoom-active .blur-morph-overlay {
+  opacity: 1;
+}

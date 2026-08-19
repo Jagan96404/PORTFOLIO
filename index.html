@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JAGAN M // Software Developer, Cybersecurity & Data Science Specialist</title>
+  <meta name="description" content="Portfolio of JAGAN M - Technology enthusiast and developer specializing in software development, full-stack engineering, Python, Java, cybersecurity, data science, and interactive web experiences.">
+
+  <!-- Style Sheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/intro.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/projects.css">
+  <link rel="stylesheet" href="css/skills.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/transitions.css">
+
+  <!-- External Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- Custom Dynamic Cursor -->
+  <div id="custom-cursor"></div>
+  <div id="cursor-dot"></div>
+
+  <!-- Route Spatial Transition Overlay -->
+  <div id="transition-overlay">
+    <div class="wipe-curtain-top"></div>
+    <div class="wipe-curtain-bottom"></div>
+    <div class="blur-morph-overlay"></div>
+  </div>
+
+  <!-- Intro / Loading Page Overlay -->
+  <div id="intro-overlay">
+    <canvas id="webgl-intro-canvas"></canvas>
+    <div class="intro-content">
+      <h1 class="intro-logo">JAGAN M</h1>
+      <div class="intro-subtitle">// SOFTWARE DEVELOPER & CYBERSECURITY ENTHUSIAST</div>
+      
+      <div class="loader-container" id="loader-container">
+        <div class="loader-bar-bg">
+          <div class="loader-bar-fill" id="loader-bar-fill"></div>
+        </div>
+        <div class="loader-text">
+          <span id="loader-percent">INITIALIZING SYSTEM ... 0%</span>
+        </div>
+      </div>
+
+      <button class="btn-enter-exp" id="btn-enter-exp">
+        <span>ENTER EXPERIENCE</span> ➔
+      </button>
+    </div>
+    <div class="intro-hint">[ BEST EXPERIENCED WITH AUDIO & MOUSE ]</div>
+  </div>
+
+  <!-- Global Floating Dock Navigation -->
+  <nav class="floating-nav" aria-label="Main Navigation">
+    <a href="#" class="nav-brand" id="brand-link">
+      <span class="nav-brand-dot"></span>
+      <span class="nav-brand-text">JAGAN.M</span>
+    </a>
+
+    <ul class="nav-links">
+      <li class="nav-item"><button data-target="hero" class="active">About Me</button></li>
+      <li class="nav-item"><button data-target="projects">Projects</button></li>
+      <li class="nav-item"><button data-target="skills">Skills & Viz</button></li>
+      <li class="nav-item"><button data-target="contact">Connect</button></li>
+    </ul>
+
+    <div class="nav-controls">
+      <button class="control-btn" id="audio-toggle-btn" title="Toggle Audio Sound Synth">🔊</button>
+      <button class="control-btn" id="theme-toggle-btn" title="Toggle Dark/Light Mode">🌙</button>
+    </div>
+  </nav>
+
+  <!-- MAIN MULTI-PAGE ROUTER VIEWS -->
+  <main id="app-main">
+
+    <!-- PAGE 1: HERO / ABOUT ME -->
+    <section id="hero-page" class="page-view active">
+      <canvas id="webgl-hero-canvas"></canvas>
+
+      <div class="container">
+        <div class="hero-grid">
+
+          <!-- Headline & Bio -->
+          <div class="hero-text-content">
+            <div class="hero-badge">
+              <span class="status-dot-green"></span>
+              AVAILABLE FOR FULL-TIME ROLES, FREELANCE & COLLABORATION
+            </div>
+            <h1 class="hero-headline">
+              Building Technology That <span class="highlight-cyan">Solves Real</span> <span class="highlight-magenta">Problems.</span>
+            </h1>
+            <p class="hero-bio">
+              I’m <strong>JAGAN M</strong>, a technology enthusiast and developer focused on software development, full-stack engineering, Python/Java systems, data science, and cybersecurity. I turn ideas into practical digital products—from interactive web experiences and intelligent applications to cybersecurity tools and data-driven systems.
+            </p>
+            <div class="hero-cta-group">
+              <button class="btn-primary" onclick="window.appRouter.navigateTo('projects')">
+                FEATURED PROJECTS ➔
+              </button>
+              <button class="btn-secondary" onclick="window.appRouter.navigateTo('contact')">
+                LET'S CONNECT
+              </button>
+            </div>
+          </div>
+
+          <!-- Glassmorphism Interactive Hero Card & AI Assistant -->
+          <div class="hero-interactive-card">
+            <div class="card-header-badge">⚡ AI-POWERED INTERACTIVE BIOGRAPHY</div>
+            <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 8px; color: #fff;">Ask My AI Assistant</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+              Select a quick prompt below to learn about my background, skills, and projects:
+            </p>
+
+            <!-- AI Bot Chat Area -->
+            <div class="ai-bot-widget">
+              <div class="ai-bot-header">
+                <span>🤖 JAGAN_AI_BOT v2.5</span>
+                <span style="color: var(--accent-green);">● ONLINE</span>
+              </div>
+              <div class="ai-messages-area" id="ai-messages-area">
+                <div class="ai-msg bot">
+                  Hello! I'm Jagan's AI companion. What would you like to know about his software development background, projects, or technical interests?
+                </div>
+              </div>
+              <div class="ai-quick-prompts">
+                <button class="prompt-chip" data-topic="background">Background</button>
+                <button class="prompt-chip" data-topic="tech stack">Tech Stack</button>
+                <button class="prompt-chip" data-topic="philosophy">Philosophy</button>
+                <button class="prompt-chip" data-topic="projects">Projects</button>
+                <button class="prompt-chip" data-topic="exploring">Exploring</button>
+                <button class="prompt-chip" data-topic="availability">Availability</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Interactive Storytelling Life Timeline -->
+        <div class="timeline-interactive-wrapper">
+          <div class="section-header" style="text-align: left; margin-bottom: 24px;">
+            <span class="section-tag">// DEVELOPMENT EVOLUTION</span>
+            <h2 class="section-title" style="font-size: 2.2rem;">Engineering Journey & Progression</h2>
+          </div>
+          <div class="timeline-track">
+            <div class="timeline-node">
+              <div class="timeline-node-pin"></div>
+              <div class="timeline-year">STEP 01</div>
+              <div class="timeline-title">Programming Fundamentals</div>
+              <div class="timeline-desc">Mastered core algorithms, Object-Oriented Java & Python, data structures, and database design.</div>
+            </div>
+            <div class="timeline-node">
+              <div class="timeline-node-pin"></div>
+              <div class="timeline-year">STEP 02</div>
+              <div class="timeline-title">Full-Stack & Web Engineering</div>
+              <div class="timeline-desc">Built interactive web apps, glassmorphic UI systems, and client-side web architectures (BrewVerse).</div>
+            </div>
+            <div class="timeline-node">
+              <div class="timeline-node-pin"></div>
+              <div class="timeline-year">STEP 03</div>
+              <div class="timeline-title">Cybersecurity & Telemetry</div>
+              <div class="timeline-desc">Developed Python Scapy network traffic analyzers, live threat dashboards, and integrity monitors.</div>
+            </div>
+            <div class="timeline-node">
+              <div class="timeline-node-pin"></div>
+              <div class="timeline-year">STEP 04</div>
+              <div class="timeline-title">Data Science & AI Exploration</div>
+              <div class="timeline-desc">Investigating ML concepts, data preprocessing, security risk quantification, and cloud architectures.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PAGE 2: PROJECTS / WORK SHOWCASE -->
+    <section id="projects-page" class="page-view">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// FEATURED WORK</span>
+          <h2 class="section-title">Practical Software & Cyber Projects</h2>
+          <p class="section-desc">Click any project card to inspect full technical architecture, feature highlights, and implementation details.</p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="projects-filter-bar">
+          <button class="filter-btn active" data-filter="all">ALL PROJECTS</button>
+          <button class="filter-btn" data-filter="fullstack">WEB & FULL-STACK</button>
+          <button class="filter-btn" data-filter="cyber">CYBERSECURITY</button>
+          <button class="filter-btn" data-filter="python">PYTHON & DATA</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+
+          <!-- Project Card 1: BrewVerse -->
+          <div class="project-card" data-category="fullstack">
+            <div class="project-thumb-container">
+              <div class="project-tag-overlay">FULL-STACK & UI/UX</div>
+              <svg class="project-canvas-preview" viewBox="0 0 400 220" style="background: linear-gradient(135deg, #1b120c, #2b1a0e);">
+                <circle cx="200" cy="110" r="55" fill="none" stroke="#ffb703" stroke-width="2" stroke-dasharray="6 4"/>
+                <path d="M160,130 C160,160 240,160 240,130 L240,90 L160,90 Z" fill="none" stroke="#00f0ff" stroke-width="2"/>
+                <path d="M240,100 C255,100 255,120 240,120" fill="none" stroke="#00f0ff" stroke-width="2"/>
+                <line x1="180" y1="75" x2="180" y2="60" stroke="#ff007f" stroke-width="2"/>
+                <line x1="200" y1="70" x2="200" y2="55" stroke="#ff007f" stroke-width="2"/>
+                <line x1="220" y1="75" x2="220" y2="60" stroke="#ff007f" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">BrewVerse — Coffee Experience <span>➔</span></h3>
+              <p class="project-desc">Luxury-focused digital coffee web application with AI Coffee Sommelier, glassmorphic UI, live cart, and table reservations.</p>
+              <div class="project-tech-stack">
+                <span class="tech-badge">Interactive UI/UX</span>
+                <span class="tech-badge">Glassmorphism</span>
+                <span class="tech-badge">AI Sommelier</span>
+                <span class="tech-badge">Client Storage</span>
+              </div>
+              <div class="project-actions">
+                <button class="btn-card-action">INSPECT ARCHITECTURE <span>↗</span></button>
+                <span style="font-family: var(--font-code); font-size: 0.75rem; color: var(--accent-gold);">FEATURED APP</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 2: Network Traffic Analyzer -->
+          <div class="project-card" data-category="cyber">
+            <div class="project-thumb-container">
+              <div class="project-tag-overlay">CYBERSECURITY / PYTHON</div>
+              <svg class="project-canvas-preview" viewBox="0 0 400 220" style="background: linear-gradient(135deg, #09151c, #06241e);">
+                <rect x="100" y="50" width="200" height="120" rx="8" fill="none" stroke="#00f5d4" stroke-width="2"/>
+                <polyline points="120,110 160,90 190,130 230,80 280,110" fill="none" stroke="#00f0ff" stroke-width="2"/>
+                <circle cx="230" cy="80" r="4" fill="#ff007f"/>
+                <circle cx="190" cy="130" r="4" fill="#00f5d4"/>
+              </svg>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Network Traffic Analyzer & Dashboard <span>➔</span></h3>
+              <p class="project-desc">Python-based real-time packet inspection tool using Scapy, multi-threaded processing, and live cyber telemetry visualization.</p>
+              <div class="project-tech-stack">
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Scapy</span>
+                <span class="tech-badge">Multi-threading</span>
+                <span class="tech-badge">Security Telemetry</span>
+              </div>
+              <div class="project-actions">
+                <button class="btn-card-action">INSPECT ARCHITECTURE <span>↗</span></button>
+                <span style="font-family: var(--font-code); font-size: 0.75rem; color: var(--accent-green);">LIVE TELEMETRY</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 3: Cybersecurity Suite -->
+          <div class="project-card" data-category="cyber">
+            <div class="project-thumb-container">
+              <div class="project-tag-overlay">SECURITY & UTILITIES</div>
+              <svg class="project-canvas-preview" viewBox="0 0 400 220" style="background: linear-gradient(135deg, #1b0924, #0d0a1f);">
+                <path d="M200,50 L270,80 L270,140 C270,180 200,200 200,200 C200,200 130,180 130,140 L130,80 Z" fill="none" stroke="#ff007f" stroke-width="2"/>
+                <rect x="185" y="110" width="30" height="30" rx="4" fill="none" stroke="#00f0ff" stroke-width="2"/>
+                <path d="M192,110 L192,100 C192,95 208,95 208,100 L208,110" fill="none" stroke="#00f0ff" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Cybersecurity Projects Suite <span>➔</span></h3>
+              <p class="project-desc">Hands-on security tools featuring File Integrity Monitoring, Password Strength Analysis, Metadata Extraction, and Threat Intel.</p>
+              <div class="project-tech-stack">
+                <span class="tech-badge">Python / Security</span>
+                <span class="tech-badge">Integrity Monitoring</span>
+                <span class="tech-badge">Risk Analysis</span>
+              </div>
+              <div class="project-actions">
+                <button class="btn-card-action">INSPECT ARCHITECTURE <span>↗</span></button>
+                <span style="font-family: var(--font-code); font-size: 0.75rem; color: var(--accent-magenta);">CYBER SUITE</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PAGE 3: SKILLS & SERVICES -->
+    <section id="skills-page" class="page-view">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// KNOWLEDGE GRAPH</span>
+          <h2 class="section-title">Technical Skills & Constellation</h2>
+          <p class="section-desc">Explore my core technical domain competencies across software development, languages, cybersecurity, and data science.</p>
+        </div>
+
+        <div class="skills-layout-grid">
+          <!-- 3D Physics Constellation Canvas -->
+          <div class="constellation-wrapper">
+            <canvas id="webgl-constellation-canvas"></canvas>
+            <div class="constellation-overlay-hint">💡 HOVER & CLICK NODES TO INSPECT METRICS</div>
+          </div>
+
+          <!-- Inspector Panel -->
+          <div class="skill-inspector-card">
+            <div class="inspector-header">
+              <div class="skill-icon-badge" id="inspector-icon">🌐</div>
+              <div class="skill-title-group">
+                <h3 id="inspector-title">Full-Stack Web</h3>
+                <div class="skill-category-label" id="inspector-category">// WEB DEVELOPMENT</div>
+              </div>
+            </div>
+
+            <p id="inspector-desc" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 24px;">
+              Building responsive, interactive web applications and immersive digital experiences.
+            </p>
+
+            <div class="skill-stat-bars">
+              <div class="stat-row">
+                <div class="stat-label-group">
+                  <span>COMPETENCY LEVEL</span>
+                  <span id="inspector-level-percent" style="color: var(--accent-cyan);">94% PROFICIENCY</span>
+                </div>
+                <div class="stat-bar-bg">
+                  <div class="stat-bar-fill" id="inspector-level-bar" style="width: 94%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid var(--border-muted); border-radius: var(--radius-sm); padding: 16px; font-family: var(--font-code); font-size: 0.8rem; color: var(--text-dim);">
+              <div style="color: var(--accent-gold); margin-bottom: 6px;">🔑 CORE KEYWORDS:</div>
+              <code>Full-Stack • Python • Java • Cybersecurity • Data Science • SQL</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Problem Solving Philosophy Callout -->
+        <div style="margin-top: 48px; background: rgba(12, 16, 32, 0.85); border: 1px solid var(--border-glow); border-radius: var(--radius-lg); padding: 32px; backdrop-filter: blur(15px);">
+          <div style="font-family: var(--font-code); font-size: 0.85rem; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">🧠 MY PROBLEM-SOLVING PHILOSOPHY</div>
+          <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: #fff; margin-bottom: 16px;">Understand → Break Down → Build → Test → Improve</h3>
+          <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 16px;">
+            I believe good development is more than writing code. I start by understanding the actual problem, divide complex requirements into smaller components, build a practical solution, test it, and continuously improve the result.
+          </p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <span class="tech-badge" style="border-color: var(--accent-cyan); color: #fff;">Clean Code</span>
+            <span class="tech-badge" style="border-color: var(--accent-cyan); color: #fff;">User-Focused Design</span>
+            <span class="tech-badge" style="border-color: var(--accent-cyan); color: #fff;">Security-Conscious</span>
+            <span class="tech-badge" style="border-color: var(--accent-cyan); color: #fff;">Continuous Learning</span>
+            <span class="tech-badge" style="border-color: var(--accent-cyan); color: #fff;">Performance & Reliability</span>
+          </div>
+        </div>
+
+        <!-- Currently Exploring & Services Section -->
+        <h3 class="services-section-title">Core Technical Disciplines</h3>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🌐</div>
+            <h4 class="service-title">Full-Stack & Frontend</h4>
+            <p class="service-desc">Building responsive, interactive web applications with modern UI/UX, animations, glassmorphic styling, and clean API integration.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🐍</div>
+            <h4 class="service-title">Python & Java Engineering</h4>
+            <p class="service-desc">Developing automation utilities, security analysis tools, data-processing applications, and desktop software with Java & SQLite.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🛡️</div>
+            <h4 class="service-title">Cybersecurity & Telemetry</h4>
+            <p class="service-desc">Exploring network security, threat detection, file integrity monitoring, password strength analysis, and ethical security concepts.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">📊</div>
+            <h4 class="service-title">Data Science & ML</h4>
+            <p class="service-desc">Working with data analysis, preprocessing, intelligent applications, machine-learning concepts, and structured SQL databases.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PAGE 4: CONTACT PORTAL & CONNECT HUB -->
+    <section id="contact-page" class="page-view">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">// COMMUNICATE & COLLABORATE</span>
+          <h2 class="section-title">Let's Build Something Impactful</h2>
+          <p class="section-desc">Open to full-time roles, freelance projects, open-source collaboration, and hackathons. Transmit a message below or connect directly.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Audio Particle Sphere & Social Links Container -->
+          <div class="contact-sphere-wrapper" style="flex-direction: column; justify-content: space-between; padding: 24px;">
+            <canvas id="webgl-contact-canvas"></canvas>
+            <div class="sphere-overlay-info" style="position: relative; z-index: 10; margin-bottom: 20px;">
+              <div class="sphere-location">📍 LOCATION // INDIA / IST</div>
+              <div class="sphere-time" id="live-time-display">00:00:00</div>
+            </div>
+
+            <!-- Social Connect Links Hub -->
+            <div class="social-connect-hub">
+              <a href="https://github.com/Jagan96404" target="_blank" rel="noopener" class="social-btn github-btn" title="GitHub Profile">
+                <span>💻</span> <span>GitHub</span>
+              </a>
+              <a href="https://chatgpt.com/c/t.me/Jagxn_M" target="_blank" rel="noopener" class="social-btn linkedin-btn" title="LinkedIn Profile">
+                <span>💼</span> <span>LinkedIn</span>
+              </a>
+              <a href="https://x.com/_jagxn_4" target="_blank" rel="noopener" class="social-btn twitter-btn" title="Twitter / X Profile">
+                <span>🐦</span> <span>Twitter / X</span>
+              </a>
+              <a href="https://discord.com/channels/@me" target="_blank" rel="noopener" class="social-btn discord-btn" title="Discord Channel">
+                <span>💬</span> <span>Discord</span>
+              </a>
+              <a href="mailto:jaganjagxn@gmail.com" class="social-btn email-btn" title="Send Email">
+                <span>📧</span> <span>Gmail</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- CLI Interactive Terminal Form -->
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="t-dot t-red"></span>
+                <span class="t-dot t-yellow"></span>
+                <span class="t-dot t-green"></span>
+              </div>
+              <div class="terminal-title">jagan_contact_terminal.sh — bash</div>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-prompt-line">
+                jagan@m-terminal:~$ ./send_transmission.sh --target="jaganjagxn@gmail.com"
+              </div>
+
+              <form class="terminal-form" id="terminal-form">
+                <div class="form-group">
+                  <label class="form-label" for="form-name">Sender Name:</label>
+                  <input type="text" id="form-name" class="terminal-input" placeholder="e.g. Sarah Jenkins" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="form-email">Sender Email:</label>
+                  <input type="email" id="form-email" class="terminal-input" placeholder="e.g. sarah@company.com" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="form-message">Transmission Payload / Opportunity:</label>
+                  <textarea id="form-message" class="terminal-textarea" placeholder="Type your project idea, opportunity, or collaboration inquiry here..." required></textarea>
+                </div>
+
+                <button type="submit" class="terminal-submit-btn">
+                  <span>TRANSMIT PAYLOAD TO JAGAN</span> 🚀
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Project Detail Modal Overlay -->
+  <div class="modal-overlay" id="project-modal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="project-modal-close">✕</button>
+      <h2 id="modal-project-title" style="font-family: var(--font-display); font-size: 2rem; color: #fff; margin-bottom: 16px;">Project Title</h2>
+      <div class="modal-body-grid">
+        <div>
+          <h4 style="font-family: var(--font-code); color: var(--accent-cyan); margin-bottom: 10px;">TECHNICAL ARCHITECTURE</h4>
+          <p id="modal-project-desc" style="color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+            Detailed project information loading...
+          </p>
+          <div id="modal-tech-stack" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;"></div>
+          <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <a id="modal-github-btn" href="https://github.com/Jagan96404" target="_blank" rel="noopener" class="btn-primary" style="text-decoration: none;">EXPLORE GITHUB ↗</a>
+          </div>
+        </div>
+        <div class="modal-code-block">
+          <code id="modal-code-snippet">// Implementation Code Snippet</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Scripts Execution -->
+  <script src="js/audio.js"></script>
+  <script src="js/webgl-intro.js"></script>
+  <script src="js/webgl-hero.js"></script>
+  <script src="js/webgl-constellation.js"></script>
+  <script src="js/webgl-contact.js"></script>
+  <script src="js/transitions.js"></script>
+  <script src="js/ai-bot.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

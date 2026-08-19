@@ -1,0 +1,254 @@
+/* ==========================================================================
+   CONTACT SECTION (Hyper-Modern Terminal & Audio Particle Sphere)
+   ========================================================================== */
+
+#contact-page {
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(255, 0, 127, 0.12) 0%, transparent 50%),
+    linear-gradient(180deg, #070a16 0%, #03040a 100%);
+  background-image: 
+    radial-gradient(circle at 50% 30%, rgba(0, 245, 212, 0.15), transparent 60%),
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 50px 50px, 50px 50px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Audio-Reactive 3D Particle Sphere Container */
+.contact-sphere-wrapper {
+  height: 480px;
+  position: relative;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at center, rgba(138, 43, 226, 0.15) 0%, transparent 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#webgl-contact-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.sphere-overlay-info {
+  position: absolute;
+  text-align: center;
+  pointer-events: none;
+}
+
+.sphere-location {
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.sphere-time {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+/* Social Connect Links Hub */
+.social-connect-hub {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(10, 14, 28, 0.85);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-full);
+  color: var(--text-main);
+  font-family: var(--font-code);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  transition: var(--transition-fast);
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+  color: #fff;
+}
+
+.github-btn:hover { border-color: #f0f6fc; box-shadow: 0 0 15px rgba(240, 246, 252, 0.4); }
+.linkedin-btn:hover { border-color: #0a66c2; box-shadow: 0 0 15px rgba(10, 102, 194, 0.5); }
+.twitter-btn:hover { border-color: #1da1f2; box-shadow: 0 0 15px rgba(29, 161, 242, 0.5); }
+.discord-btn:hover { border-color: #5865f2; box-shadow: 0 0 15px rgba(88, 101, 242, 0.5); }
+.email-btn:hover { border-color: var(--accent-magenta); box-shadow: 0 0 15px rgba(255, 0, 127, 0.5); }
+
+/* CLI Interactive Terminal Form */
+.terminal-window {
+  background: #090c19;
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-glass), 0 0 40px rgba(0, 240, 255, 0.1);
+  overflow: hidden;
+}
+
+.terminal-header {
+  background: #101528;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.t-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.t-red { background: #ff5f56; }
+.t-yellow { background: #ffbd2e; }
+.t-green { background: #27c93f; }
+
+.terminal-title {
+  font-family: var(--font-code);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.terminal-body {
+  padding: 24px;
+  font-family: var(--font-code);
+}
+
+.terminal-prompt-line {
+  color: var(--accent-cyan);
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+}
+
+.terminal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.terminal-input,
+.terminal-textarea {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  color: #fff;
+  font-family: var(--font-code);
+  font-size: 0.9rem;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.terminal-input:focus,
+.terminal-textarea:focus {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 240, 255, 0.06);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+.terminal-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.terminal-submit-btn {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-magenta));
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-code);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.3);
+  transition: var(--transition-bounce);
+}
+
+.terminal-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 40px rgba(255, 0, 127, 0.5);
+}
+
+/* Toast Notification */
+#toast-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  background: rgba(13, 17, 32, 0.95);
+  border: 1px solid var(--accent-cyan);
+  box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  color: #fff;
+  font-family: var(--font-code);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: toast-in 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes toast-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@media (max-width: 992px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
