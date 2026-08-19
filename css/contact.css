@@ -94,6 +94,7 @@
 }
 
 .github-btn:hover { border-color: #f0f6fc; box-shadow: 0 0 15px rgba(240, 246, 252, 0.4); }
+.telegram-btn:hover { border-color: #229ed9; box-shadow: 0 0 15px rgba(34, 158, 217, 0.5); }
 .linkedin-btn:hover { border-color: #0a66c2; box-shadow: 0 0 15px rgba(10, 102, 194, 0.5); }
 .twitter-btn:hover { border-color: #1da1f2; box-shadow: 0 0 15px rgba(29, 161, 242, 0.5); }
 .discord-btn:hover { border-color: #5865f2; box-shadow: 0 0 15px rgba(88, 101, 242, 0.5); }
